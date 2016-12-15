@@ -1,6 +1,3 @@
-import * as angular from "angular";
+import greeter = require('./components/greet');  
 
-angular.module("app", []);
-angular.bootstrap(document, ["app"], {
-    strictDi: true
-});
+console.log(greeter);
