@@ -1,3 +1,3 @@
-import * as angular from 'angular';
+import './app.css';
 
-console.log(angular);
+console.log('Hello world');

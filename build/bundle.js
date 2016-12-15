@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "../assets/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -49,21 +49,10 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	"use strict";
-	const angular = __webpack_require__(2);
-	console.log(angular);
-
-
-/***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./angular\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	module.exports = angular;
-
+	console.log('asdasd');
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=build.js.map
+//# sourceMappingURL=bundle.js.map

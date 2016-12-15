@@ -1,6 +1,14 @@
 module.exports = [
     {
-        test: /\.ts$/,
-        loader: 'ts-loader'
+        test: /\.ts(x?)$/,
+        loader: 'babel-loader!ts-loader'
+    },
+    { 
+        test: /\.css$/, 
+        loaders: [
+            'style-loader',
+            'css-loader?importLoaders=1',
+            'postcss-loader'
+        ]
     }
 ];

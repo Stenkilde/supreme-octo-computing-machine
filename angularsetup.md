@@ -1,4 +1,4 @@
-# Tricom Angular 1.5.x Typescript Webpack setup
+#Angular 1.x Typescript Webpack setup
 
 ##Folder structure will be as following
 
@@ -26,12 +26,15 @@
  	+ views.ts
  - typings
 
-## Webpack for bundling
- - [ ] Compile the TypeScript to useable Javascript for browsers
- - [ ] Hotreload (Monkey patching) edits on the fly
+## Webpack for dev
+ - [x] Compile the TypeScript to useable Javascript for browsers
+ - [x] Hotreload (Monkey patching) edits on the fly
  - [x] Lint code with tslint
  - [ ] PostCSS to follow the real CSS spec, with super power features
  - [ ] CSS Modules for Modular Component CSS, scoped variables.
+ - [ ] Make Angular base setup
+
+## Webpack for Production
 
 ## Preferred testing suite
  - Protractor (End to end)

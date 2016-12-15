@@ -1,28 +1,22 @@
 const path = require('path');
 const webpack = require('webpack');
 const loaders = require('./loaders');
+const preloaders = require('./preloaders');
 
 module.exports = {
   entry: ['./src/app.ts'],
     output: {
-        filename: 'build.js',
-        path: 'build'
+        path: path.resolve(__dirname, "../build"),
+        publicPath: "assets/",
+        filename: "bundle.js"
     },
     devtool: 'source-map',
     resolve: {
         root: __dirname,
-        extensions: ['', '.html', '.ts']
+        extensions: ['', '.js', '.html', '.ts']
     },
-    // plugins: [
-    //     new webpack.optimize.UglifyJsPlugin()
-    // ],
     module: {
-        preLoaders: [
-            {
-                test: /\.ts$/,
-                loader: 'tslint-loader'
-            }
-        ],
+        preLoaders: preloaders,
         loaders: loaders
     },
     tslint: {

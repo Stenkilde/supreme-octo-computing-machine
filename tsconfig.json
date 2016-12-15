@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "target": "es6",
+    "allowJs": true,
     "experimentalDecorators": true
   },
   "files": [

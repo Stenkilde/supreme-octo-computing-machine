@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-dev": "webpack --config config/webpack.dev.js --colors --progres",
+    "build-dev": "webpack --config config/webpack.dev.js --colors --progres --display-error-details",
     "start": "webpack-dev-server --content-base src --config config/webpack.dev.js --inline --hot"
   },
   "author": "",
@@ -16,7 +16,15 @@
     "tslint": "^4.0.2",
     "tslint-loader": "^3.3.0",
     "typescript": "^2.1.4",
-    "webpack": "^1.14.0",
-    "webpack-dev-server": "~1.14.0"
+    "typings": "^2.0.0",
+    "webpack": "^1.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-loader": "^6.2.10",
+    "css-loader": "^0.26.1",
+    "postcss-loader": "^1.2.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.14.0"
   }
 }
