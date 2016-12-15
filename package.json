@@ -1,0 +1,15 @@
+{
+  "name": "base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config config/webpack.dev.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "~1.5.8",
+    "@types/angular": "~1.5.19"
+  }
+}
