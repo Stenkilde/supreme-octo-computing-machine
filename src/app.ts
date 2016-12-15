@@ -1,3 +1,3 @@
-import greeter = require('./components/greet');  
+import * as angular from 'angular';
 
-console.log(greeter);
+console.log(angular);

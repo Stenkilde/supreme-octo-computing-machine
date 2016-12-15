@@ -27,11 +27,11 @@
  - typings
 
 ## Webpack for bundling
- - Compile the TypeScript to useable Javascript for browsers
- - PostCSS to follow the real CSS spec, with super power features
- - CSS Modules for Modular Component CSS, scoped variables.
- - Hotreload (Monkey patching) edits on the fly
- - Lint code with tslint
+ - [ ] Compile the TypeScript to useable Javascript for browsers
+ - [ ] Hotreload (Monkey patching) edits on the fly
+ - [x] Lint code with tslint
+ - [ ] PostCSS to follow the real CSS spec, with super power features
+ - [ ] CSS Modules for Modular Component CSS, scoped variables.
 
 ## Preferred testing suite
  - Protractor (End to end)
