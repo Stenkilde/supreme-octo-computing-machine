@@ -10,5 +10,10 @@ module.exports = [
             'css-loader?importLoaders=1',
             'postcss-loader'
         ]
+    },
+    {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        loader: 'raw'
     }
 ];

@@ -1,10 +1,14 @@
 import * as angular from 'angular';
 import 'angular-ui-router';
 
-export let app = angular.module('app', ['ui.router']);
+import './components/test/index';
 
-app.config([
+export let app = angular.module('app', ['ui.router'])
+    .config([
+    '$stateProvider',
+    '$urlRouterProvider',
     function ($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider) {
+        // ************************************************************************************************* //
         let pageNotFoundState = {
             name: 'pagenotfound',
             url: '/pagenotfound',
@@ -18,11 +22,11 @@ app.config([
         let homeState = {
             name: 'home',
             url: '/',
-            templateUrl: 'src/containers/Home/Home.html',
-            controller: 'homeController',
-            controllerAs: 'vm'
+            //templateUrl: './containers/Home/Home.html'
+            template: '<test></test>'
         };
 
+        // ************************************************************************************************* //
         $stateProvider.state(homeState);
         $stateProvider.state(pageNotFoundState);
 
@@ -30,3 +34,7 @@ app.config([
         $urlRouterProvider.otherwise('/pagenotfound');
     }
 ]);
+
+angular.bootstrap(document, ['app'], {
+    strictDi: true
+});
