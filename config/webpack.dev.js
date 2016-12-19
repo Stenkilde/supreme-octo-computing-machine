@@ -1,42 +1,79 @@
-const path = require('path');
-const webpack = require('webpack');
-const loaders = require('./loaders');
-const preloaders = require('./preloaders');
+'use strict';
+
+var webpack = require('webpack'),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    autoprefixer = require('autoprefixer'),
+    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
 
 module.exports = {
-  entry: ['./src/app.ts'],
+
+    entry: './src/core/bootstrap.ts',
+
     output: {
-        path: path.resolve(__dirname, "../build"),
-        publicPath: "assets/",
-        filename: "bundle.js"
+        path: __dirname + '/build',
+        filename: 'bundle.js'
     },
+
     devtool: 'source-map',
+
     resolve: {
-        root: __dirname,
-        extensions: ['', '.js', '.html', '.ts']
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
     },
+
     module: {
-        preLoaders: preloaders,
-        loaders: loaders
-    },
-    tslint: {
-        configuration: {
-            rules: {
-                quotemark: [true, 'single']
+
+        preloaders: [
+            {
+                test: /\.ts$/,
+                loader: 'tslint'
             }
-        },
-        // enables type checked rules like 'for-in-array' 
-        // uses tsconfig.json from current working directory 
-        typeCheck: true,
-        // can specify a custom config file relative to current directory 
-        // 'tslint-custom.json' 
-        configFile: false,
-        // tslint errors are displayed by default as warnings 
-        // set emitErrors to true to display them as errors 
-        emitErrors: false,
-        // tslint does not interrupt the compilation by default 
-        // if you want any file with tslint errors to fail 
-        // set failOnHint to true 
-        failOnHint: true
-    }
+        ],
+
+        loaders: [
+            {
+                test: /\.html$/,
+                loader: 'raw',
+            },
+            {
+                test: /\.ts$/,
+                loader: 'ts'
+            },
+            {
+                test: /\.scss$/,
+                loader: 'style!css!postcss!sass'
+            },
+            {
+                test: /bootstrap-sass\/assets\/javascripts\//,
+                loader: 'imports?jQuery=jquery'
+            },
+            {
+                test: /\.(woff2?|svg)$/,
+                loader: 'url?limit=10000'
+            },
+            {
+                test: /\.(ttf|eot)$/,
+                loader: 'file'
+            },
+        ]
+    },
+
+    postcss: function() {
+        return [autoprefixer];
+    },
+
+    node: {
+        fs: "empty"
+    },
+
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Tricom Test',
+            filename: './index.html',
+            template: './src/index.html',
+            inject: false
+        }),
+        new ngAnnotatePlugin({
+            add: true
+        })
+    ]
 };

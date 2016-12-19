@@ -8,6 +8,6 @@
     "experimentalDecorators": true
   },
   "files": [
-    "src/app.ts"
+    "src/core/bootstrap.ts"
   ]
 }
