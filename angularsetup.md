@@ -31,7 +31,7 @@
  - [x] Hotreload (Monkey patching) edits on the fly
  - [x] Lint code with tslint
  - [x] PostCSS to follow the real CSS spec, with super power features
- - [ ] Make Angular base setup
+ - [x] Make Angular base setup
  - [ ] CSS Modules for Modular Component CSS, scoped variables.
 
 ## Webpack for Production

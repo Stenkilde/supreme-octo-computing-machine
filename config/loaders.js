@@ -1,19 +1,14 @@
 module.exports = [
     {
-        test: /\.ts(x?)$/,
-        loader: 'babel-loader!ts-loader'
-    },
-    { 
-        test: /\.css$/, 
-        loaders: [
-            'style-loader',
-            'css-loader?importLoaders=1',
-            'postcss-loader'
-        ]
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+        query: {
+            presets: ['es2015']
+        }
     },
     {
         test: /\.html$/,
-        exclude: /node_modules/,
-        loader: 'raw'
+        loader: "html"
     }
 ];

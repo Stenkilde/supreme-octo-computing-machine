@@ -1,6 +1,7 @@
 module.exports = [
     {
-        test: /\.ts$/,
-        loader: 'tslint-loader'
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "jshint-loader"
     }
 ];

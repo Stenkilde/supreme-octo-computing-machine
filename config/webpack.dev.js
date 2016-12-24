@@ -1,79 +1,31 @@
 'use strict';
 
-var webpack = require('webpack'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    autoprefixer = require('autoprefixer'),
-    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+var webpack = require('webpack');
+var preloaders = require('./preloaders.js');
+var loaders = require('./loaders.js');
 
 module.exports = {
-
-    entry: './src/core/bootstrap.ts',
-
+    entry: './src/app.js',
     output: {
-        path: __dirname + '/build',
-        filename: 'bundle.js'
+        path: './build',
+        filename: 'bundle.js',
+        publicPath: "/assets/"
     },
 
     devtool: 'source-map',
 
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.js']
     },
 
     module: {
-
-        preloaders: [
-            {
-                test: /\.ts$/,
-                loader: 'tslint'
-            }
-        ],
-
-        loaders: [
-            {
-                test: /\.html$/,
-                loader: 'raw',
-            },
-            {
-                test: /\.ts$/,
-                loader: 'ts'
-            },
-            {
-                test: /\.scss$/,
-                loader: 'style!css!postcss!sass'
-            },
-            {
-                test: /bootstrap-sass\/assets\/javascripts\//,
-                loader: 'imports?jQuery=jquery'
-            },
-            {
-                test: /\.(woff2?|svg)$/,
-                loader: 'url?limit=10000'
-            },
-            {
-                test: /\.(ttf|eot)$/,
-                loader: 'file'
-            },
-        ]
+        preLoaders: preloaders,
+        loaders: loaders
     },
-
-    postcss: function() {
-        return [autoprefixer];
-    },
-
-    node: {
-        fs: "empty"
-    },
-
-    plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Tricom Test',
-            filename: './index.html',
-            template: './src/index.html',
-            inject: false
-        }),
-        new ngAnnotatePlugin({
-            add: true
-        })
-    ]
+    jshint: {
+        camelcase: true,
+        emitErrors: false,
+        failOnHint: false,
+        esversion: 6
+    }
 };
