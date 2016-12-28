@@ -38,5 +38,6 @@
 
 ## Preferred testing suite
  - Protractor (End to end)
- - Jasmine (Unit test)
- - Karma (Makes unit tests in Jasmine dead easy)
+ - Mocha (Unit test)
+ - Chai
+ - Sinon
