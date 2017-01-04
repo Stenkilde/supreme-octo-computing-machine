@@ -1,4 +1,5 @@
-import {Counter} from './Counter';
+import * as angular from "angular";
+import Counter from './Counter';
 
-angular.module('app.counter', [])
-    .component('Counter', Counter);
+angular.module("app.counter", [])
+    .component("counter", new Counter());

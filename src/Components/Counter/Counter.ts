@@ -1,4 +1,4 @@
-//import {App} from '../../app';
+import {App} from '../../app';
 import {Component} from '../Component';
 
 @Component({
@@ -7,7 +7,7 @@ import {Component} from '../Component';
     },
     template: '<p>{{$ctrl.prop}}</p>'
 })
-export class Counter {
+export default class Counter {
 
     prop: string;
 
