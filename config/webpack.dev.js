@@ -1,17 +1,19 @@
 'use strict';
 
-var webpack = require('webpack'),
-    HtmlWebpackPlugin = require('html-webpack-plugin'),
-    autoprefixer = require('autoprefixer'),
-    ngAnnotatePlugin = require('ng-annotate-webpack-plugin');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
+const path = require('path');
 
 module.exports = {
 
-    entry: './src/core/bootstrap.ts',
+    entry: './src/app.ts',
 
     output: {
-        path: __dirname + '/build',
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, "build"),
+        publicPath: "/assets/",
+        filename: "bundle.js"
     },
 
     devtool: 'source-map',
@@ -32,7 +34,7 @@ module.exports = {
         loaders: [
             {
                 test: /\.html$/,
-                loader: 'raw',
+                loader: "html-loader"
             },
             {
                 test: /\.ts$/,
@@ -41,19 +43,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: 'style!css!postcss!sass'
-            },
-            {
-                test: /bootstrap-sass\/assets\/javascripts\//,
-                loader: 'imports?jQuery=jquery'
-            },
-            {
-                test: /\.(woff2?|svg)$/,
-                loader: 'url?limit=10000'
-            },
-            {
-                test: /\.(ttf|eot)$/,
-                loader: 'file'
-            },
+            }
         ]
     },
 
@@ -66,13 +56,7 @@ module.exports = {
     },
 
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'Tricom Test',
-            filename: './index.html',
-            template: './src/index.html',
-            inject: false
-        }),
-        new ngAnnotatePlugin({
+        new NgAnnotatePlugin({
             add: true
         })
     ]
