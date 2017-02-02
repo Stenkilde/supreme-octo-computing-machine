@@ -8,7 +8,7 @@
     "experimentalDecorators": true
   },
   "files": [
-    "src/app.ts",
-    "typings/index.d.ts"
+    "typings/index.d.ts",
+    "src/App.ts"
   ]
 }

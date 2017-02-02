@@ -1,4 +1,4 @@
-/// <reference path="../../typings/index.d.ts" />
+import * as angular from 'angular';
 
 export const Component = function(options: ng.IComponentOptions): Function {
     return (controller: Function) => {

@@ -1,10 +1,17 @@
 import * as angular from 'angular';
-import './Components/Counter/index';
+import 'angular-animate';
+import 'angular-aria';
 
-export let App = angular.module('app', ['app.counter']);
+import 'angular-ui-router';
+import 'angular-material';
 
-angular.element(document).ready( () => {
-    angular.bootstrap(document, [], {
-        strictDi: true
-    });
+import Router from './Routing';
+import './Containers/Home/';
+import './Containers/PageNotFound/';
+import './Components/Counter/';
+
+angular.module('app', ['ngAnimate', 'ngAria', 'ui.router', 'ngMaterial', 'app.home', 'app.pagenotfound', 'app.counter'])
+    .config(Router);
+angular.bootstrap(document, ['app'], {
+    strictDi: true
 });

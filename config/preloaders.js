@@ -1,6 +1,11 @@
 module.exports = [
     {
         test: /\.ts$/,
-        loader: 'tslint-loader'
+        loader: 'tslint'
+    },
+    {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'typed-css-modules'
     }
 ];

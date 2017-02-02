@@ -1,21 +1,18 @@
-import {App} from '../../app';
-import {Component} from '../Component';
+import {Component} from '../../decorators/Component';
 
 @Component({
-    bindings: {
-        prop: '<'
-    },
-    template: '<p>{{$ctrl.prop}}</p>'
+    bindings: {},
+    templateUrl: '/Components/Counter/Counter.html',
+    controllerAs: 'vm'
 })
 export default class Counter {
+    public count = 0;
 
-    prop: string;
+    constructor() {}
 
-    constructor() {
-        console.log('test');
-    }
+    $onInit() {}
 
-    $onInit() {
-        // do something with this.prop or this.$q upon initialization
+    public Count() {
+        this.count++;
     }
 }

@@ -1,63 +1,32 @@
 'use strict';
 
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const autoprefixer = require('autoprefixer');
-const NgAnnotatePlugin = require('ng-annotate-webpack-plugin');
 const path = require('path');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+// Loaders
+const Loaders = require('./loaders');
+const Preloaders = require('./preloaders');
 
 module.exports = {
-
-    entry: './src/app.ts',
-
+    
+    entry: './src/App.ts',
+    
     output: {
         path: path.resolve(__dirname, "build"),
         publicPath: "/assets/",
         filename: "bundle.js"
     },
-
-    devtool: 'source-map',
-
+    
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js', '.css']
     },
-
+    
     module: {
-
-        preloaders: [
-            {
-                test: /\.ts$/,
-                loader: 'tslint'
-            }
-        ],
-
-        loaders: [
-            {
-                test: /\.html$/,
-                loader: "html-loader"
-            },
-            {
-                test: /\.ts$/,
-                loader: 'ts'
-            },
-            {
-                test: /\.scss$/,
-                loader: 'style!css!postcss!sass'
-            }
-        ]
+        preLoaders: Preloaders,
+        loaders: Loaders
     },
-
-    postcss: function() {
-        return [autoprefixer];
-    },
-
-    node: {
-        fs: "empty"
-    },
-
     plugins: [
-        new NgAnnotatePlugin({
-            add: true
-        })
+        new ExtractTextPlugin("styles.css")
     ]
 };
